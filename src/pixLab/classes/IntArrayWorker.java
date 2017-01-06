@@ -12,6 +12,18 @@ public class IntArrayWorker
     matrix = theMatrix;
   }
   
+//  public int getColTotal()
+//  {
+//	  int total = 0;
+//	  for (int col = 0; col < matrix[0].length; col++)
+//      {
+//        total = total + matrix[col];
+//     }
+//    }
+//    return getColTotal;
+	  
+//}
+  
   public int getLargest()
   {
 	  int largest = Integer.MIN_VALUE;
