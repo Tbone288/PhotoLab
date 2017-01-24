@@ -44,6 +44,16 @@ public class PictureTester
 	  arch.explore();
   }
   
+  public static void testMirrorDiagonal()
+  {
+	  Picture gorge = new Picture("gorge.jpg");
+	  gorge.explore();
+	  //gorge.mirrorDiagonal();
+	  gorge.mirrorDiagonalUphill();
+	  gorge.explore();
+
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -51,6 +61,16 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+    
+    
+  }
+  
+  public static void testMirrorGull()
+  {
+	  Picture seagull = new Picture("seagull.jpg");
+	    seagull.explore();
+	    seagull.mirrorTemple();
+	    seagull.explore();
   }
   
   /** Method to test the collage method */
@@ -65,7 +85,7 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
+    swan.edgeDetection(20);
     swan.explore();
   }
   
@@ -92,7 +112,7 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
