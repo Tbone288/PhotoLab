@@ -68,9 +68,15 @@ public class PictureTester
   public static void testMirrorGull()
   {
 	  Picture seagull = new Picture("seagull.jpg");
+	    seagull.mirrorGull();
 	    seagull.explore();
-	    seagull.mirrorTemple();
-	    seagull.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.mirrorArms();
+	  snowman.explore();
   }
   
   /** Method to test the collage method */
@@ -87,6 +93,24 @@ public class PictureTester
     Picture swan = new Picture("swan.jpg");
     swan.edgeDetection(20);
     swan.explore();
+  }
+  
+  public static void testEdgeDetectionJr()
+  {
+    Picture swan = new Picture("swan.jpg");
+    swan.edgeDetectionJr(20);
+    swan.explore();
+  }
+  
+  public static void testFilters()
+  {
+	  Picture temple = new Picture("temple.jpg");
+	  temple.fullRandomGreen();	  
+	  temple.fullRandomRed();
+	  temple.mirrorDiagonal();
+	  temple.mirrorVertical();
+	  temple.mirrorDiagonalUphill();
+	  temple.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -107,12 +131,13 @@ public class PictureTester
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontal();
     //testMirrorTemple();
-    //testMirrorArms();
+    testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    testEdgeDetection();
+    //testEdgeDetection();
+	//testEdgeDetectionJr();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
@@ -120,5 +145,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	//testFilters();
   }
 }
