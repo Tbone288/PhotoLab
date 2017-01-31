@@ -247,7 +247,6 @@ public class Picture extends SimplePicture
 	 
 	  Pixel leftPixel = null;
 	  Pixel rightPixel = null;
-	  
 	  Pixel[][] pixels = this.getPixels2D();
 	  
 	  for (int row = 165; row < 214; row ++)
@@ -313,27 +312,33 @@ public class Picture extends SimplePicture
     * @param startCol the start col to copy to
     */
   public void copy(Picture fromPic, 
-                 int startRow, int startCol)
+                 int startRow, int startCol, int endRow, int endCol)
   {
     Pixel fromPixel = null;
     Pixel toPixel = null;
     Pixel[][] toPixels = this.getPixels2D();
     Pixel[][] fromPixels = fromPic.getPixels2D();
-    for (int fromRow = 0, toRow = startRow; 
-         fromRow < fromPixels.length &&
-         toRow < toPixels.length; 
-         fromRow++, toRow++)
+    
+    if (fromPixels.length-1 < endRow)
+	{
+		endRow = fromPixels.length-1;
+	}
+    if (fromPixels[0].length-1 < endCol)
     {
-      for (int fromCol = 0, toCol = startCol; 
-           fromCol < fromPixels[0].length &&
-           toCol < toPixels[0].length;  
-           fromCol++, toCol++)
-      {
-        fromPixel = fromPixels[fromRow][fromCol];
-        toPixel = toPixels[toRow][toCol];
-        toPixel.setColor(fromPixel.getColor());
-      }
-    }   
+    	endCol = fromPixels[0].length -1;
+    }
+    
+    for(int fromRow = endRow, toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
+    {
+    	for(int fromCol = endCol, toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; fromCol++, toCol++)
+    	{
+    		fromPixel = fromPixels[fromRow][fromCol];
+    		toPixel = toPixels[toRow][toCol];
+    		toPixel.setColor(fromPixel.getColor());
+    	}
+    }
+    
+     
   }
 
   /** Method to create a collage of several pictures */
