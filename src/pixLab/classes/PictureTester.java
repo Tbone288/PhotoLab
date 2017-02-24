@@ -82,7 +82,7 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("blueMotorcycle.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -116,7 +116,14 @@ public class PictureTester
   public static void testCopy()
   {
 	  Picture water = new Picture("water.jpg");
-	  water.copy(water, 100, 100, 300, 300);
+	  water.copy(water, 100, 100);
+  }
+  
+  public static void testValentineMeme()
+  {
+	  Picture valentineMeme = new Picture("ValentinesMeme.png");
+	  valentineMeme.valentinesMeme();
+	  valentineMeme.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -140,8 +147,8 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
-    testCopy();
+    testCollage();
+    //testCopy();
     //testEdgeDetection();
 	//testEdgeDetectionJr();
     //testEdgeDetection2();
@@ -152,5 +159,6 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
 	//testFilters();
+    //testValentineMeme();
   }
 }

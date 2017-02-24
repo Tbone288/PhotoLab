@@ -312,31 +312,22 @@ public class Picture extends SimplePicture
     * @param startCol the start col to copy to
     */
   public void copy(Picture fromPic, 
-                 int startRow, int startCol, int endRow, int endCol)
+                 int startRow, int startCol)
   {
     Pixel fromPixel = null;
     Pixel toPixel = null;
     Pixel[][] toPixels = this.getPixels2D();
     Pixel[][] fromPixels = fromPic.getPixels2D();
     
-    if (fromPixels.length-1 < endRow)
-	{
-		endRow = fromPixels.length-1;
-	}
-    if (fromPixels[0].length-1 < endCol)
-    {
-    	endCol = fromPixels[0].length -1;
-    }
-    
-    for(int fromRow = endRow, toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
-    {
-    	for(int fromCol = endCol, toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; fromCol++, toCol++)
-    	{
-    		fromPixel = fromPixels[fromRow][fromCol];
-    		toPixel = toPixels[toRow][toCol];
-    		toPixel.setColor(fromPixel.getColor());
-    	}
-    }
+   for(int fromRow = 0, toRow = startRow;fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
+   {
+	   for (int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length && toCol < toPixels[0].length; fromCol++, toCol++)
+	   {
+		   fromPixel = fromPixels[fromRow][fromCol];
+		   toPixel = toPixels[toRow][toCol];
+		   toPixel.setColor(fromPixel.getColor());
+	   }
+   }
     
      
   }
@@ -346,18 +337,27 @@ public class Picture extends SimplePicture
   {
     Picture flower1 = new Picture("flower1.jpg");
     Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
+ /*   this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
     Picture flowerNoBlue = new Picture(flower2);
     flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
-    this.mirrorVertical();
+  */  this.mirrorVertical();
     this.write("collage.jpg");
   }
   
+  public void valentinesMeme()
+  {
+	  Picture valentinesMeme = new Picture("ValentinesMeme.png");
+	  addMessage("Try...", 63, 98);
+	  addMessage("Catch", 63, 440);
+	  write("/Users/todo3858/ValentinesMeme.jpg");
+	 
+
+	  
+  }
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
